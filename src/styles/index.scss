@@ -1,0 +1,13 @@
+@import "reset";
+@import "themes/dark";
+@import "themes/light";
+@import "variables/global";
+
+.app {
+  height: 100vh;
+
+  font: var(--font-m);
+  background-color: var(--bg-color);
+  color: var(--pr-color);
+  border: 3px solid var(--border);
+}
