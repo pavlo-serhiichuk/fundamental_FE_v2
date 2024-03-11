@@ -17,6 +17,9 @@ export function getConfig(options: ConfigOptions): webpack.Configuration {
     module: {rules: getLoaders(options)},
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
+      preferAbsolute: true,
+      modules: [paths.src, 'node_modules'],
+      alias: {}
     },
     plugins: getPlugins(paths),
     devtool: isDev ? 'inline-source-map': undefined,
