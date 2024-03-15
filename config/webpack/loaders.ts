@@ -2,11 +2,26 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import {ConfigOptions} from './types'
 
 export const getLoaders = ({isDev}: ConfigOptions) => {
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+
+  const fileLoader =  {
+    test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
   const tsLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
     exclude: /node_modules/,
   }
+
   const cssLoader =  {
       test: /\.s[ac]ss$/i,
       use: [
@@ -25,6 +40,8 @@ export const getLoaders = ({isDev}: ConfigOptions) => {
     }
 
   return [
+    fileLoader,
+    svgLoader,
     tsLoader,
     cssLoader
   ]
