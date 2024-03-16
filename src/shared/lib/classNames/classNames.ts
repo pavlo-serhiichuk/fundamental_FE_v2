@@ -1,11 +1,13 @@
 type Mods = Record<string, string | boolean>
 
 export function cls(className: string, mods: Mods, additional: string[]) {
+  const modsClasses = Object.entries(mods)
+    .filter(([_, value]) => Boolean(value))
+    .map(([className]) => className).flat(1)
+
   return [
     className,
-    Object.entries(mods)
-      .filter((className, value) => Boolean(value))
-      .map(([className]) => className),
+    modsClasses,
     ...additional.filter(Boolean)
   ].join(' ')
 }

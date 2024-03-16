@@ -4,7 +4,7 @@ import {useTheme} from 'app/providers/ThemeProvider'
 import {cls} from 'shared/lib/classNames/classNames'
 import {AppRouter} from 'app/providers/Routes/ui/AppRouter'
 import {Navbar} from 'widgets/Navbar/ui/Navbar'
-import {ThemeSwitcher} from 'shared/ui/ThemeSwitcher'
+import {Sidebar} from 'widgets/Sidebar/ui/Sidebar/Sidebar'
 
 
 const App = () => {
@@ -13,8 +13,10 @@ const App = () => {
   return (
     <div className={cls('app', {}, [theme])}>
       <Navbar />
-      <AppRouter />
-      <ThemeSwitcher />
+      <div className="app-content">
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   );
 

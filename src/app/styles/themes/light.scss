@@ -1,13 +1,12 @@
 .light {
-
-  --content-bg: #f0f07d;
-  --navbar-bg: #968a24;
-  --sidebar-bg: #000;
+  --content-bg: rgba(254, 254, 36, 0.12);
+  --navbar-bg: rgba(226, 205, 27, 0.87);
+  --sidebar-bg: rgba(238, 231, 111, 0.64);
 
   --content-text-color: #000;
-  --nav-text-color: #fff;
+  --nav-text-color: #000000;
 
   --border: green;
   --content-border: #000;
-  --nav-border: #fff;
+  --nav-border: #000;
 }
