@@ -21,7 +21,7 @@ export function getConfig(options: ConfigOptions): webpack.Configuration {
       modules: [paths.src, 'node_modules'],
       alias: {}
     },
-    plugins: getPlugins(paths),
+    plugins: getPlugins(options),
     devtool: isDev ? 'inline-source-map': undefined,
     devServer: isDev ? getDevServer(options): undefined
   }
