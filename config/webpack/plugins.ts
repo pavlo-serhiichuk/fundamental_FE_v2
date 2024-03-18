@@ -15,6 +15,7 @@ export const getPlugins = ({paths, isDev}: ConfigOptions) => {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:2].css',
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
