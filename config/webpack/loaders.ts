@@ -2,6 +2,17 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { type ConfigOptions } from './types'
 
 export const getLoaders = ({ isDev }: ConfigOptions) => {
+  const babelLoader = {
+    test: /\.(js|ts|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env']
+      }
+    }
+  }
+
   const svgLoader = {
     test: /\.svg$/,
     use: ['@svgr/webpack']
@@ -40,6 +51,7 @@ export const getLoaders = ({ isDev }: ConfigOptions) => {
   }
 
   return [
+    babelLoader,
     fileLoader,
     svgLoader,
     tsLoader,
