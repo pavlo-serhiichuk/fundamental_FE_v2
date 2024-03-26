@@ -40,7 +40,8 @@
     "@typescript-eslint/consistent-type-assertions": 0,
     "i18next/no-literal-string": 2,
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/promise-function-async": 0
+    "@typescript-eslint/promise-function-async": 0,
+    "@typescript-eslint/no-misused-promises": 0
   },
   "globals": {
     "__IS_DEV__": true
