@@ -1,3 +1,15 @@
 .ThemeSwitcher {
   display: block;
 }
+
+.light {
+  svg {
+    fill: #000;
+  }
+}
+
+.dark {
+  svg {
+    fill: #fff;
+  }
+}
