@@ -1,7 +1,7 @@
-import {ConfigOptions} from './types'
-import {Configuration as DevServerConfiguration} from 'webpack-dev-server'
+import { type ConfigOptions } from './types'
+import { type Configuration as DevServerConfiguration } from 'webpack-dev-server'
 
-export function getDevServer({port}: ConfigOptions): DevServerConfiguration {
+export function getDevServer ({ port }: ConfigOptions): DevServerConfiguration {
   return {
     port,
     open: true,

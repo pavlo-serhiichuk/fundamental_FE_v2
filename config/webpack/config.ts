@@ -10,7 +10,7 @@ export function getConfig(options: ConfigOptions): webpack.Configuration {
     mode,
     entry: paths.entry,
     output: {
-      filename: "[name].[contenthash:2].js",
+      filename: '[name].[contenthash:10].js',
       path: paths.build,
       clean: true
     },
@@ -22,7 +22,7 @@ export function getConfig(options: ConfigOptions): webpack.Configuration {
       alias: {}
     },
     plugins: getPlugins(options),
-    devtool: isDev ? 'inline-source-map': undefined,
-    devServer: isDev ? getDevServer(options): undefined
+    devtool: isDev ? 'inline-source-map' : undefined,
+    devServer: isDev ? getDevServer(options) : undefined
   }
 }
