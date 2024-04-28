@@ -1,17 +1,16 @@
-import {FC} from 'react'
-import {cls} from 'shared/lib/classNames/classNames'
-import {useTranslation} from 'react-i18next'
+import { type FC } from 'react'
+import { cls } from 'shared/lib/classNames/classNames'
 import s from './AppLink.module.scss'
-import {Link, LinkProps} from 'react-router-dom'
+import { Link, type LinkProps } from 'react-router-dom'
 
 export type AppLinkThemes = 'content' | 'navigation' | 'navigationBorder'
 
 interface AppLinkProps extends LinkProps {
-  className?: string;
+  className?: string
   theme?: AppLinkThemes
 }
 
-export const AppLink:FC<AppLinkProps> = (props) => {
+export const AppLink: FC<AppLinkProps> = (props) => {
   const { className, theme = 'content', to, children, ...otherProps } = props
 
   return (
@@ -22,5 +21,5 @@ export const AppLink:FC<AppLinkProps> = (props) => {
     >
       {children}
     </Link>
-  );
-};
+  )
+}
