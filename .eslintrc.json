@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "standard-with-typescript",
@@ -45,7 +46,8 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/promise-function-async": 0,
     "@typescript-eslint/no-floating-promises": 0,
-    "@typescript-eslint/no-misused-promises": 0
+    "@typescript-eslint/no-misused-promises": 0,
+    "@typescript-eslint/quotes": 0
 
   },
   "globals": {

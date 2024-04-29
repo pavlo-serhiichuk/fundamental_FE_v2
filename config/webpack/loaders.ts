@@ -7,6 +7,19 @@ export const getLoaders = ({ isDev }: ConfigOptions) => {
     use: ['@svgr/webpack']
   }
 
+  const babelLoader = {
+    test: /\.(js|ts|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: [
+          ['@babel/preset-env', { targets: 'defaults' }]
+        ]
+      }
+    }
+  }
+
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff|woff2)$/i,
     use: [
@@ -42,6 +55,7 @@ export const getLoaders = ({ isDev }: ConfigOptions) => {
   return [
     fileLoader,
     svgLoader,
+    babelLoader,
     tsLoader,
     cssLoader
   ]
