@@ -1,0 +1,14 @@
+.Loader {
+  animation-name: rotate-x;
+  animation-duration: 2s;
+}
+
+@keyframes rotate-x {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(360deg);
+  }
+}
