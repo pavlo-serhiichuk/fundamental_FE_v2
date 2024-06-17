@@ -3,7 +3,7 @@ import { cls } from 'shared/lib/classNames/classNames'
 import s from './AppLink.module.scss'
 import { Link, type LinkProps } from 'react-router-dom'
 
-export type AppLinkThemes = 'content' | 'navigation' | 'navigationBorder'
+export type AppLinkThemes = 'content' | 'navigation' | 'navigationBorder' | 'contentBorder'
 
 interface AppLinkProps extends LinkProps {
   className?: string

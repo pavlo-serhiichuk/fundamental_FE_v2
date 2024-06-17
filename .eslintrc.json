@@ -41,16 +41,23 @@
     "@typescript-eslint/naming-convention": 0,
     "@typescript-eslint/consistent-type-assertions": 0,
     "i18next/no-literal-string": ["error", {
-      "markupOnly": true
+      "markupOnly": true,
+      "exclude": ["**/src/**/*.test.tsx"],
+      "ignoreAttrebute": ["data-testid"]
     }],
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/promise-function-async": 0,
     "@typescript-eslint/no-floating-promises": 0,
     "@typescript-eslint/no-misused-promises": 0,
     "@typescript-eslint/quotes": 0
-
   },
   "globals": {
     "__IS_DEV__": true
-  }
+  },
+  "overrides": [{
+    "files": ["**/src/**/*.test.{ts,tsx}"],
+    "rules": {
+      "i18next/no-literal-string": 0
+    }
+  }]
 }

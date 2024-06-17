@@ -1,4 +1,4 @@
-import { cls } from './classNames'
+import { cls } from 'shared/lib/classNames/classNames'
 
 describe('classNames with', () => {
   test('first arg', () => {

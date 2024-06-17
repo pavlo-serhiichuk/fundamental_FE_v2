@@ -1,3 +1,5 @@
+import path from 'path'
+
 export default {
   // The test environment that will be used for testing
   clearMocks: true,
@@ -16,7 +18,12 @@ export default {
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ],
 
-  moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node']
+  moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  setupFilesAfterEnv: [`<rootDir>/config/jest/setup-tests.ts`],
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    "\\.svg": path.resolve(__dirname, 'jestEmptyComponent')
+  }
   // A map from regular expressions to paths to transformers
   // transform: {
   //   '^.+\\.ts?$': 'babel-jest'

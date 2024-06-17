@@ -17,8 +17,8 @@ export const Sidebar: FC<SidebarProps> = (props) => {
   const onToggle = () => { setClosed(prev => !prev) }
 
   return (
-    <div className={cls(s.Sidebar, { [s.closed]: closed }, [className])}>
-      <button onClick={onToggle}>{t('toggle')}</button>
+    <div data-testid="sidebar" className={cls(s.Sidebar, { [s.closed]: closed }, [className])}>
+      <button data-testid="sidebar-toggle-btn" onClick={onToggle}>{t('toggle')}</button>
       <div className={s.switchers}>
         <ThemeSwitcher />
         <LangSwitcher />

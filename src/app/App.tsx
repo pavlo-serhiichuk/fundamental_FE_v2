@@ -7,7 +7,6 @@ import { Sidebar } from 'widgets/Sidebar'
 
 const App = () => {
   const { theme } = useTheme()
-
   return (
     <Suspense fallback={'Translations loading'}>
       <div className={cls('app', {}, [theme])}>

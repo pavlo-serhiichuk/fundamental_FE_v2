@@ -1,0 +1,25 @@
+import { type FC } from 'react'
+import { cls } from 'shared/lib/classNames/classNames'
+import { useTranslation } from 'react-i18next'
+import s from './PageError.module.scss'
+import { Button } from 'shared/ui/Button'
+
+interface PageErrorProps {
+  className?: string
+}
+
+export const PageError: FC<PageErrorProps> = (props) => {
+  const { t } = useTranslation()
+  const { className } = props
+
+  const onReload = () => {
+    location.reload()
+  }
+
+  return (
+    <div className={cls(s.PageError, {}, [className])}>
+        <h1>{t('Something went wrong')}</h1> <br/>
+      <Button onClick={onReload}>{t('Reload')}</Button>
+    </div>
+  )
+}
