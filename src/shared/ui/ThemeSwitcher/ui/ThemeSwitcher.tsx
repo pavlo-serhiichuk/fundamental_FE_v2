@@ -1,9 +1,9 @@
 import { type FC } from 'react'
 import { cls } from 'shared/lib/classNames/classNames'
+import { Button } from 'shared/ui/Button/Button'
 import s from './ThemeSwitcher.module.scss'
 import { useTheme } from 'app/providers/ThemeProvider'
 import ThemeCircle from 'shared/assets/icons/circle.svg'
-import { Button } from 'shared/ui/Button'
 
 interface ThemeSwitcherProps {
   className?: string
