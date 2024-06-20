@@ -11,7 +11,7 @@ i18n
 
     debug: true,
 
-    resources: {en: {translationsNS: {}}}
+    resources: { en: { translationsNS: {} } }
   })
 
 export default i18n
