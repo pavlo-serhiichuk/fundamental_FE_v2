@@ -1,11 +1,9 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { type ConfigOptions } from './types'
+import { getCssLoader } from './loaders/getCssLoader'
+import { getSvgLoader } from './loaders/getSvgLoader'
 
 export const getLoaders = ({ isDev }: ConfigOptions) => {
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack']
-  }
+  const svgLoader = getSvgLoader()
 
   const babelLoader = {
     test: /\.(js|ts|tsx)$/,
@@ -35,22 +33,7 @@ export const getLoaders = ({ isDev }: ConfigOptions) => {
     exclude: /node_modules/
   }
 
-  const cssLoader = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            auto: (resPath: string) => resPath.includes('.module.'),
-            localIdentName: isDev ? '[local]_[hash:base64:4]' : '[hash:base64:8]'
-          }
-        }
-      },
-      'sass-loader'
-    ]
-  }
+  const cssLoader = getCssLoader(isDev)
 
   return [
     fileLoader,

@@ -8,17 +8,15 @@
     "standard-with-typescript",
     "plugin:react/jsx-runtime",
     "plugin:i18next/recommended"
+//    "plugin:storybook/recommended"
   ],
   "overrides": [
     {
-      "env": {
-        "node": true
-      },
       "files": [
-        ".eslintrc.{js,cjs}"
+        "**/src/**/*.test.{ts,tsx}"
       ],
-      "parserOptions": {
-        "sourceType": "script"
+      "rules": {
+        "i18next/no-literal-string": 0
       }
     }
   ],
@@ -40,11 +38,18 @@
     "@typescript-eslint/no-unsafe-argument": 0,
     "@typescript-eslint/naming-convention": 0,
     "@typescript-eslint/consistent-type-assertions": 0,
-    "i18next/no-literal-string": ["error", {
-      "markupOnly": true,
-      "exclude": ["**/src/**/*.test.tsx"],
-      "ignoreAttrebute": ["data-testid"]
-    }],
+    "i18next/no-literal-string": [
+      "error",
+      {
+        "markupOnly": true,
+        "exclude": [
+          "**/src/**/*.test.tsx"
+        ],
+        "ignoreAttrebute": [
+          "data-testid"
+        ]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/promise-function-async": 0,
     "@typescript-eslint/no-floating-promises": 0,
@@ -53,11 +58,5 @@
   },
   "globals": {
     "__IS_DEV__": true
-  },
-  "overrides": [{
-    "files": ["**/src/**/*.test.{ts,tsx}"],
-    "rules": {
-      "i18next/no-literal-string": 0
-    }
-  }]
+  }
 }
