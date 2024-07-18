@@ -1,5 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-webpack5'
-import { type Configuration, type RuleSetRule } from 'webpack'
+import { type Configuration } from 'webpack'
 import { type WebpackPaths } from '../webpack/types'
 import path from 'path'
 import { getCssLoader } from '../webpack/loaders/getCssLoader'
