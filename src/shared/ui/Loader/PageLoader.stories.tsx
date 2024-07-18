@@ -1,14 +1,14 @@
 import { type Meta, type StoryObj } from '@storybook/react'
-import { PageLoader } from './PageLoader'
-import { ThemeDecorator } from '../../../config/storybook/decorators'
+import { Loader } from './Loader'
+import { ThemeDecorator } from '../../../../config/storybook/decorators'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'widgets/PageLoader',
-  component: PageLoader,
+  title: 'shared/Loader',
+  component: Loader,
   args: {
   }
-} as Meta <typeof PageLoader>
+} as Meta <typeof Loader>
 
 export default meta
 type Story = StoryObj<typeof meta>
