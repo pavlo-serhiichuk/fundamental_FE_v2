@@ -8,13 +8,11 @@
   font: var(--font-m);
   background-color: var(--content-bg);
   color: var(--content-text-color);
-  border: 3px solid var(--border);
 }
 
 .app-content {
   display: flex;
   height: calc(100vh - var(--navbar-height) - 6px);
-  border: 1px solid var(--border);
 }
 
 .page-content {

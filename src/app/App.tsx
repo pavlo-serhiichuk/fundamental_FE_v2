@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { cls } from 'shared/lib/classNames/classNames'
 import { AppRouter } from 'app/providers/Routes/ui/AppRouter'
-import { Navbar } from 'widgets/Navbar/ui/Navbar'
+import { Navbar } from 'widgets/Navbar/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 
 const App = () => {

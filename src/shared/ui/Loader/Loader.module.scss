@@ -1,6 +1,6 @@
 .Loader {
   animation-name: rotate-x;
-  animation-duration: 2s;
+  animation-duration: 4s;
 }
 
 @keyframes rotate-x {
@@ -9,6 +9,6 @@
   }
 
   to {
-    transform: rotateX(360deg);
+    transform: rotateX(720deg);
   }
 }

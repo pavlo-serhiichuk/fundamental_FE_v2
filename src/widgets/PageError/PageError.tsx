@@ -19,7 +19,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
   return (
     <div className={cls(s.PageError, {}, [className])}>
         <h1>{t('Something went wrong')}</h1> <br/>
-      <Button onClick={onReload}>{t('Reload')}</Button>
+      <Button theme={'bordered'} onClick={onReload}>{t('Reload')}</Button>
     </div>
   )
 }
