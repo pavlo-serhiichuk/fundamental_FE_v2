@@ -5,7 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export const getPlugins = ({ paths, isDev }: ConfigOptions) => {
-  return [
+  const plugins = [
     new webpack.ProgressPlugin(),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
@@ -15,8 +15,13 @@ export const getPlugins = ({ paths, isDev }: ConfigOptions) => {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:10].css'
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({ openAnalyzer: false })
+    })
   ]
+
+  if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin())
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
+  }
+
+  return plugins
 }
