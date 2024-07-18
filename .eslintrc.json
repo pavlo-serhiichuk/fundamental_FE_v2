@@ -43,7 +43,8 @@
       {
         "markupOnly": true,
         "exclude": [
-          "**/src/**/*.test.tsx"
+          "**/src/**/*.test.tsx",
+          "*.config.ts"
         ],
         "ignoreAttrebute": [
           "data-testid"
@@ -56,6 +57,7 @@
     "@typescript-eslint/no-misused-promises": 0,
     "@typescript-eslint/quotes": 0
   },
+  "ignorePatterns": ["webpack.config.ts"],
   "globals": {
     "__IS_DEV__": true
   }
