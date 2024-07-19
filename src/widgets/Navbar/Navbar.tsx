@@ -18,7 +18,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
       <div className={s.links}>
         <AppLink to={'/about'} theme={'navigation'}>{t('To about')}</AppLink>
         <AppLink to={'/'} theme={'navigation'}>{t('To main')}</AppLink>
-        <AppLink to={'#'} theme={'navigationBorder'}>TEST</AppLink>
+        <AppLink to={'#'} theme={'navigationBorder'}>{t('TEST button')}</AppLink>
       </div>
     </div>
   )
