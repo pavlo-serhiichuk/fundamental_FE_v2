@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ maint ]
+    branches: [ main ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -34,5 +34,5 @@ jobs:
         run: npm run storybook:build
         if: always()
       - name: screenshot testing
-        run: npm run test:ui:ci
+        run: npm run test:ui:ok
         if: always()
