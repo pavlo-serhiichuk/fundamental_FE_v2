@@ -6,6 +6,37 @@
   height: calc(100vh - var(--navbar-height));
 }
 
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.appLink {
+  display: inline-flex;
+  padding: 0 28px;
+  height: 50px;
+  align-items: center;
+
+  &:hover {
+    background-color: var(--sidebar-bg-hover);
+  }
+}
+
+.linkText {
+  display: inline-block;
+  width: 100px;
+  overflow: hidden;
+  transition: all ease-out 0.2s;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.linkTextOpen {
+  width: 0;
+  padding-left: 0;
+}
+
 .switchers {
   position: absolute;
   bottom: 40px;
@@ -17,4 +48,10 @@
 
 .closed {
   width: var(--sidebar-width-collapsed);
+}
+
+.toggleBtn {
+  position: absolute;
+  bottom: 40px;
+  right: -40px;
 }

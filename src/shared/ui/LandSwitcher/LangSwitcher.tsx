@@ -21,7 +21,7 @@ export const LangSwitcher: FC<LandSwitcherProps> = (props) => {
       theme={'clear'}
       onClick={toggleLanguage}
       className={cls(s.LangSwitcher, {}, [className])}>
-      {t('language')}
+      {t('Lang')}
     </Button>
   )
 }
