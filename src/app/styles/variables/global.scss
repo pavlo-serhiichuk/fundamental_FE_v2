@@ -1,4 +1,5 @@
 :root {
+  // fonts
   --font-family: verdana, sens-serif;
   --font-size-m: 16px;
   --line-height-m: 24px;
@@ -6,8 +7,13 @@
   --font-size-l: 24px;
   --line-height-l: 32px;
   --font-l: var(--font-size-l) / var(--line-height-l) var(--font-family);
+
+  // sizes
   --navbar-height: 70px;
   --border-radius: 7px;
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;
+
+  // z-indexes
+  --z-index-modal: 10;
 }

@@ -1,7 +1,8 @@
 import { fn } from '@storybook/test'
+
 import { type Meta, type StoryObj } from '@storybook/react'
 import { AppLink } from './AppLink'
-import { ThemeDecorator } from '../../../../config/storybook/decorators'
+import { ThemeDecorator } from 'shared/lib/StorybookDecorators/decorators'
 
 const meta = {
   title: 'shared/AppLink',

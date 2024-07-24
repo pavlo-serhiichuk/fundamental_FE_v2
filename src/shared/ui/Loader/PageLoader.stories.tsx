@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Loader } from './Loader'
-import { ThemeDecorator } from '../../../../config/storybook/decorators'
+import { ThemeDecorator } from 'shared/lib/StorybookDecorators/decorators'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

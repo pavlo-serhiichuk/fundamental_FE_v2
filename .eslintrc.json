@@ -7,7 +7,8 @@
   "extends": [
     "standard-with-typescript",
     "plugin:react/jsx-runtime",
-    "plugin:i18next/recommended"
+    "plugin:i18next/recommended",
+    "plugin:react-hooks/recommended"
 //    "plugin:storybook/recommended"
   ],
   "overrides": [
@@ -28,7 +29,8 @@
     "react",
     "i18next",
     "@typescript-eslint",
-    "i18next"
+    "i18next",
+    "react-hooks"
   ],
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": 0,
@@ -55,7 +57,9 @@
     "@typescript-eslint/promise-function-async": 0,
     "@typescript-eslint/no-floating-promises": 0,
     "@typescript-eslint/no-misused-promises": 0,
-    "@typescript-eslint/quotes": 0
+    "@typescript-eslint/quotes": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error"
   },
   "ignorePatterns": ["webpack.config.ts", "scripts/**.js"],
   "globals": {

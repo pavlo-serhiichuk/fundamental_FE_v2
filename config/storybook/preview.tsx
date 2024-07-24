@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react"
 import 'app/styles/index.scss'
-import { RouterDecorator, ThemeDecorator } from './decorators'
+import { RouterDecorator, ThemeDecorator } from 'shared/lib/StorybookDecorators/decorators'
 
 const preview: Preview = {
   decorators: [RouterDecorator, ThemeDecorator('light')],
