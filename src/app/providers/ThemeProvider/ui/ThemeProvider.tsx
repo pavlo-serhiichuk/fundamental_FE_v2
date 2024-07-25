@@ -4,7 +4,7 @@ import { type FC, useMemo, useState } from 'react'
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) || 'light'
 
 interface ThemeProviderProps {
-  initialTheme: Theme
+  initialTheme?: Theme
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
