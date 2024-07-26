@@ -2,6 +2,9 @@ import path from 'path'
 
 export default {
   // The test environment that will be used for testing
+  globals: {
+    __IS_DEV__: true
+  },
   clearMocks: true,
   testEnvironment: 'jsdom',
   rootDir: '../../',

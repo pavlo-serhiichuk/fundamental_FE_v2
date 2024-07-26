@@ -14,10 +14,10 @@ export const Counter: FC = () => {
     <div>
       <br/>
       <br/>
-      <h1>{number}</h1>
+      <h1 data-testid="counter-number">{number}</h1>
       <br/>
-      <Button theme={'bordered'} onClick={decrement}>-</Button>
-      <Button theme={'bordered'} onClick={increment}>+</Button>
+      <Button data-testid="counter-btn-decrement" theme={'bordered'} onClick={decrement}>-</Button>
+      <Button data-testid="counter-btn-increment" theme={'bordered'} onClick={increment}>+</Button>
     </div>
   )
 }

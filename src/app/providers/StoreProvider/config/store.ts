@@ -5,7 +5,7 @@ import { counterReducer } from 'entities/Counter'
 export function createReduxStore (initialState?: StateSchema) {
   return configureStore<StateSchema>({
     reducer: {
-      counterReducer
+      counter: counterReducer
     },
     preloadedState: initialState
   })

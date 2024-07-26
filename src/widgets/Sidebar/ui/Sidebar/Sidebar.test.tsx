@@ -1,5 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { Sidebar } from './Sidebar'
+
 import { renderWrappedComponent } from 'shared/lib/renderWrappedComponent/renderWrappedComponent'
 
 describe('Sidebar', () => {
