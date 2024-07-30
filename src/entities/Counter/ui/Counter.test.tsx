@@ -22,12 +22,4 @@ describe('Counter', () => {
     fireEvent.click(decBtn)
     expect(screen.getByTestId('counter-number')).toHaveTextContent('9')
   })
-  // test('open', () => {
-  //   renderWrappedComponent(<Counter />)
-  //   const toggleBtn = screen.getByTestId('sidebar-toggle-btn')
-  //   expect(screen.getByTestId('sidebar')).toBeInTheDocument()
-  //   fireEvent.click(toggleBtn)
-  //   expect(screen.getByTestId('sidebar')).toHaveClass('closed')
-  //   screen.debug()
-  // })
 })
