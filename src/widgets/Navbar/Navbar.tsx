@@ -4,7 +4,7 @@ import s from './Navbar.module.scss'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button/Button'
-import { SignInModal } from 'features/UserSignIn'
+import { SignInModal } from 'features/SignIn'
 
 interface NavbarProps {
   className?: string
