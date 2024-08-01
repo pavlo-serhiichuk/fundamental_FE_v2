@@ -1,0 +1,13 @@
+.SignInForm {
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.signInBtn {
+  float: right;
+  width: 90px;
+  margin-top: 20px;
+}
