@@ -1,6 +1,7 @@
 .Input {
   display: flex;
   flex-direction: column;
+  gap: 3px;
 
   input {
     background-color: var(--input-bg);

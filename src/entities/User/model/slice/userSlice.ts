@@ -1,13 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { type UserSchema } from 'entities/User/model/types/user'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { type UserSchema } from 'entities/User/model/types/auth'
+import { AUTH_USER_DATA } from 'shared/const/localStorage'
 
 const initialState: UserSchema = {}
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-const userSlice = createSlice<UserSchema, {}, "user">({
+const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {}
+  reducers: {
+    setUserAuthData: (state: UserSchema, action: PayloadAction<any>) => {
+      state.auth = action.payload
+    },
+    initUserAuthData: (state: UserSchema) => {
+      const local = localStorage.getItem(AUTH_USER_DATA)
+      if (local) {
+        state.auth = JSON.parse(local)
+      }
+    }
+  }
 })
 
 export const { actions: userActions } = userSlice

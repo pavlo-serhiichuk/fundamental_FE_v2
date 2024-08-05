@@ -3,6 +3,10 @@ import { Suspense } from 'react'
 import { type Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
+import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider'
+import { type DeepPartial } from '@reduxjs/toolkit'
+import i18nextForTests from 'shared/config/i18next/i18nextForTests'
+import { I18nextProvider } from 'react-i18next'
 
 export const ThemeDecorator = (theme: Theme) => (Story: any) => {
   return (
@@ -21,5 +25,21 @@ export const RouterDecorator = (Story: any) => {
         <Story />
       </Suspense>
     </BrowserRouter>
+  )
+}
+
+export const StoreDecorator = (state: DeepPartial<StateSchema>) => (Story: any) => {
+  return (
+    <StoreProvider initialState={state}>
+        <Story />
+    </StoreProvider>
+  )
+}
+
+export const TranslationDecorator = (Story: any) => {
+  return (
+    <I18nextProvider i18n={i18nextForTests}>
+        <Story />
+    </I18nextProvider>
   )
 }

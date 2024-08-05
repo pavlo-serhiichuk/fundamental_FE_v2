@@ -1,0 +1,21 @@
+.Text {
+  p {
+    font: var(--font-l);
+  }
+
+  span {
+    font: var(--font-m);
+  }
+}
+
+.content {
+  color: var(--content-text-color);
+}
+
+.error {
+  color: var(--color-error);
+}
+
+.warn {
+  color: var(--color-warn);
+}

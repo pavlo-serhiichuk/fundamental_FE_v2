@@ -1,8 +1,9 @@
-export interface User {
+export interface Auth {
   id?: number
   name?: string
   age?: number
 }
+
 export interface UserSchema {
-  user?: User
+  auth?: Auth
 }

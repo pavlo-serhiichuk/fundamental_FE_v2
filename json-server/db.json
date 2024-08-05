@@ -22,7 +22,7 @@
   "users": [
     {
       "id": 1,
-      "password": 111,
+      "password": "111",
       "username": "admin",
       "age": 28
     }

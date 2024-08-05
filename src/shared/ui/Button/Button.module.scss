@@ -33,3 +33,8 @@
 .content-squad-m {
   background-color: var(--content-bg);
 }
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

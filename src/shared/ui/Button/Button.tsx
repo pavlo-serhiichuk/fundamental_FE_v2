@@ -7,14 +7,15 @@ export type ButtonTheme = 'clear' | 'bordered' | 'nav-squad-m' | 'content-squad-
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   theme?: ButtonTheme
+  disabled?: boolean
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { className, theme, children, ...otherProps } = props
-
+  const { className, theme, children, disabled, ...otherProps } = props
+  console.log('d', disabled)
   return (
     <button
-      className={cls(s.Button, {}, [className, s[theme]])}
+      className={cls(s.Button, { [s.disabled]: disabled }, [className, s[theme]])}
       {...otherProps}>
       {children}
     </button>
