@@ -22,14 +22,14 @@ const initialReducers: ReducersList = { signIn: signInReducer }
 
 const SignInForm: FC<SignInFormProps> = (props) => {
   const { t } = useTranslation()
-  const { className, onClose, isStory } = props
+  const { className, onClose } = props
   const auth = useSelector(getUserAuthData)
   const { password, username, isLoading, error } = useSelector(getSignInData)
   const dispatch = useDispatch()
   const { onActivateDynamicLoad } = useDynamicReducerLoad(initialReducers)
 
   useEffect(() => {
-    onActivateDynamicLoad(isStory)
+    onActivateDynamicLoad()
     // eslint-disable-next-line
   }, [])
 

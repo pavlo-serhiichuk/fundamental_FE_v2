@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
-import { SignInFormAsync } from './SignInForm.async'
+import SignInFormAsync from './SignInForm'
 import { StoreDecorator, ThemeDecorator } from 'shared/lib/StorybookDecorators/decorators'
 import { getSignInInitialState } from '../../state/slice/getSignInInitialState'
 
@@ -25,11 +25,9 @@ export const Primary: Story = {
 }
 
 export const PrimaryDark: Story = {
-  args: { isStory: true },
   decorators: [ThemeDecorator('dark')]
 }
 
 export const IsLoading: Story = {
-  args: { isStory: true },
   decorators: StoreDecorator({ signIn: { isLoading: true } })
 }

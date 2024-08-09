@@ -1,4 +1,4 @@
-import { configureStore, type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
+import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StateSchema } from './types'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User/model/slice/userSlice'

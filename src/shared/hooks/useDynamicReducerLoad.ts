@@ -10,17 +10,19 @@ export type ReducersList = {
 
 type EntriesSchema = [StateSchemaKey, Reducer]
 
+const isStorybook = window.location.host === 'localhost:6006'
+
 export const useDynamicReducerLoad = (reducers: ReducersList, isUnmountReducer: boolean = true) => {
   const [isActivate, setIsActivate] = useState(false)
   const store = useStore() as ReduxStoreWithReducerManager
   const dispatch = useDispatch()
 
-  const onActivateDynamicLoad = (isStory: boolean) => {
-    setIsActivate(!isStory)
+  const onActivateDynamicLoad = () => {
+    setIsActivate(true)
   }
 
   useEffect(() => {
-    if (isActivate) {
+    if (isActivate && !isStorybook) {
       Object.entries(reducers).forEach(([name, reducer]: EntriesSchema) => {
         store.reducerManager.add(name, reducer)
         dispatch({ type: `@INIT ${name} reducer` })
@@ -28,8 +30,7 @@ export const useDynamicReducerLoad = (reducers: ReducersList, isUnmountReducer: 
       // store.reducerManager.add(key, reducer)
     }
     return () => {
-      if (isUnmountReducer) {
-        // store.reducerManager.remove('signIn')
+      if (isUnmountReducer && !isStorybook) {
         Object.keys(reducers).forEach((name: StateSchemaKey) => {
           store.reducerManager.remove(name)
           dispatch({ type: `@DESTROY ${name} reducer` })
