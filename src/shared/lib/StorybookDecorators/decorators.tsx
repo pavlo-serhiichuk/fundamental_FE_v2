@@ -4,9 +4,10 @@ import { type Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider'
-import { type DeepPartial } from '@reduxjs/toolkit'
+import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
 import i18nextForTests from 'shared/config/i18next/i18nextForTests'
 import { I18nextProvider } from 'react-i18next'
+import { signInReducer } from 'features/SignIn'
 
 export const ThemeDecorator = (theme: Theme) => (Story: any) => {
   return (
@@ -28,9 +29,19 @@ export const RouterDecorator = (Story: any) => {
   )
 }
 
-export const StoreDecorator = (state: DeepPartial<StateSchema>) => (Story: any) => {
+const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+  signIn: signInReducer
+}
+
+export const StoreDecorator = (
+  state: DeepPartial<StateSchema>,
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
+) => (Story: any) => {
   return (
-    <StoreProvider initialState={state}>
+    <StoreProvider
+      initialState={state}
+      asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+    >
         <Story />
     </StoreProvider>
   )

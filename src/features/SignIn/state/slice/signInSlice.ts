@@ -1,8 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type SignInSchema } from '../types/signInSchema'
 import { fetchSignIn } from 'features/SignIn/state/thunks/fetchSignIn'
+import { getSignInInitialState } from 'features/SignIn/state/slice/getSignInInitialState'
 
-const initialState: SignInSchema = { password: '111', username: 'admin', isLoading: false, error: undefined }
+const initialState: SignInSchema = getSignInInitialState()
 
 const signInSlice = createSlice({
   name: 'signIn',

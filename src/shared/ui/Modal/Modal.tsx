@@ -40,6 +40,10 @@ export const Modal: FC<ModalProps> = (props) => {
     e.stopPropagation()
   }
 
+  if (!isOpen) {
+    return null
+  }
+
   return (
     <Portal>
       <div className={cls(s.Modal, mods, [className, theme])}>

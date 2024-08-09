@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button: FC<ButtonProps> = (props) => {
   const { className, theme, children, disabled, ...otherProps } = props
-  console.log('d', disabled)
+
   return (
     <button
       className={cls(s.Button, { [s.disabled]: disabled }, [className, s[theme]])}
