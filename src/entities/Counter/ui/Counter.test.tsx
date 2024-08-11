@@ -1,7 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { Counter } from './Counter'
 
-import { renderWrappedComponent } from 'shared/lib/renderWrappedComponent/renderWrappedComponent'
+import { renderWrappedComponent } from 'shared/lib/tests/renderWrappedComponent/renderWrappedComponent'
 
 describe('Counter', () => {
   beforeEach(() => {

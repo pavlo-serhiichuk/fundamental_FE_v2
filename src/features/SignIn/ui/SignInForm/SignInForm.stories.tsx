@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import SignInFormAsync from './SignInForm'
-import { StoreDecorator, ThemeDecorator } from 'shared/lib/StorybookDecorators/decorators'
+import { StoreDecorator, ThemeDecorator } from 'shared/lib/storybook/decorators'
 import { getSignInInitialState } from '../../state/slice/getSignInInitialState'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Navbar } from 'widgets/Navbar/Navbar'
-import { StoreDecorator, ThemeDecorator } from 'shared/lib/StorybookDecorators/decorators'
+import { StoreDecorator, ThemeDecorator } from 'shared/lib/storybook/decorators'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

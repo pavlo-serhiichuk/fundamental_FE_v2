@@ -61,7 +61,8 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "@typescript-eslint/no-dynamic-delete": 0,
-    "no-prototype-builtins": 0
+    "no-prototype-builtins": 0,
+    "@typescript-eslint/unbound-method": 0
   },
   "ignorePatterns": ["webpack.config.ts", "scripts/**.js", "json-server"],
   "globals": {

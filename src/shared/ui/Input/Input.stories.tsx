@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Input } from './Input'
-import { ThemeDecorator } from 'shared/lib/StorybookDecorators/decorators'
+import { ThemeDecorator } from 'shared/lib/storybook/decorators'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

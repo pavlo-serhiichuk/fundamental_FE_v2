@@ -3,6 +3,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { userActions } from 'entities/User'
 import { AUTH_USER_DATA } from 'shared/const/localStorage'
 
+// createAsyncThunk
+// - це actionCreator який повертає в результаті action
+// цей action потрапляє в dispatch і в результаті повертає якісь данні
 export const fetchSignIn = createAsyncThunk(
   'users/fetchByIdStatus',
   async (payload: any, thunkAPI) => {
