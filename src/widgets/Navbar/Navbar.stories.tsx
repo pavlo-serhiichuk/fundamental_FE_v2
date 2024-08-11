@@ -21,5 +21,5 @@ export const PrimaryDark: Story = {
 }
 
 export const UserIsAuth: Story = {
-  decorators: [StoreDecorator({ user: { auth: { id: 111 } } })]
+  decorators: [StoreDecorator({ user: { auth: { id: '111' } } })]
 }
