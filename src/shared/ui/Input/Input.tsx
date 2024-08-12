@@ -1,4 +1,4 @@
-import { type ChangeEvent, type FC, type InputHTMLAttributes } from 'react'
+import { type ChangeEvent, type InputHTMLAttributes, memo } from 'react'
 import { cls } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import s from './Input.module.scss'
@@ -13,7 +13,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void
 }
 
-export const Input: FC<InputProps> = (props: InputProps) => {
+export const Input = memo((props: InputProps) => {
   const { t } = useTranslation()
   const { className, label = '', type = 'text', value, onChange, ...otherProps } = props
 
@@ -27,4 +27,4 @@ export const Input: FC<InputProps> = (props: InputProps) => {
         <input value={value} onChange={onChangeHandler} type={type} {...otherProps} />
     </div>
   )
-}
+})

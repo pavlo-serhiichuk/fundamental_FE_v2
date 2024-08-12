@@ -8,11 +8,14 @@ import {
   type Reducer,
   type ReducersMapObject
 } from '@reduxjs/toolkit'
+import { type ProfileSchema } from 'entities/Profile/model/types/ProfileSchema'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+  // async
   signIn?: SignInSchema
+  profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

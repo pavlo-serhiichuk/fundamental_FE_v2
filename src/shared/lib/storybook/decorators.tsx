@@ -8,6 +8,7 @@ import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
 import i18nextForTests from 'shared/config/i18next/i18nextForTests'
 import { I18nextProvider } from 'react-i18next'
 import { signInReducer } from 'features/SignIn'
+import { profileReducer } from 'entities/Profile'
 
 export const ThemeDecorator = (theme: Theme) => (Story: any) => {
   return (
@@ -30,7 +31,8 @@ export const RouterDecorator = (Story: any) => {
 }
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
-  signIn: signInReducer
+  signIn: signInReducer,
+  profile: profileReducer
 }
 
 export const StoreDecorator = (state: DeepPartial<StateSchema>) => (Story: any) => {

@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 import { cls } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import s from './Text.module.scss'
@@ -11,7 +11,7 @@ interface TextProps {
   theme?: TextTheme
 }
 
-export const Text: FC<TextProps> = (props) => {
+export const Text = memo((props: TextProps) => {
   const { className, title, text, theme = 'content' } = props
   const { t } = useTranslation()
 
@@ -21,4 +21,4 @@ export const Text: FC<TextProps> = (props) => {
       {text ? <span>{t(text)}</span> : null}
     </div>
   )
-}
+})

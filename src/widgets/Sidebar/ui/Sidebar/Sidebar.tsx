@@ -8,6 +8,8 @@ import { Button } from 'shared/ui/Button/Button'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import MainIcon from 'shared/assets/icons/main.svg'
 import AboutUsIcon from 'shared/assets/icons/about_us.svg'
+import { sidebarItems } from 'widgets/Sidebar/model/sidebarItems'
+import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem'
 
 interface SidebarProps {
   className?: string
@@ -16,21 +18,15 @@ interface SidebarProps {
 export const Sidebar: FC<SidebarProps> = (props) => {
   const { className } = props
   const [closed, setClosed] = useState(false)
-  const { t } = useTranslation()
 
   const onToggle = () => { setClosed(prev => !prev) }
 
   return (
     <div data-testid="sidebar" className={cls(s.Sidebar, { [s.closed]: closed }, [className])}>
       <div className={s.links}>
-        <AppLink className={s.appLink} to={'/about'} theme={'navigation'}>
-          <MainIcon />
-           <span className={cls(s.linkText, { [s.linkTextOpen]: closed })}>{t('To about')}</span>
-        </AppLink>
-        <AppLink className={s.appLink} to={'/'} theme={'navigation'}>
-          <AboutUsIcon />
-           <span className={cls(s.linkText, { [s.linkTextOpen]: closed })}>{t('To main')}</span>
-        </AppLink>
+        {sidebarItems.map(item => (
+          <SidebarItem item={item} />
+        ))}
       </div>
       <div className={s.switchers}>
         <ThemeSwitcher />

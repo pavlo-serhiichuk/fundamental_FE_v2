@@ -14,7 +14,7 @@ export const SignInModal: FC<SignInModalProps> = (props) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} className={''}>
         <Suspense fallback={<Loader />}>
-          <SignInFormAsync onClose={onClose} />
+          <SignInFormAsync onSignInSuccess={onClose} />
         </Suspense>
     </Modal>
   )
