@@ -4,7 +4,7 @@ import {
   type Reducer,
   type ReducersMapObject
 } from '@reduxjs/toolkit'
-import { type ReducerManager, type StateSchema, type StateSchemaKey } from './types'
+import { type ReducerManager, type StateSchema, type StateSchemaKey } from './StateSchema'
 
 // export function createReducerManager (initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
 //   const reducers = { ...initialReducers }

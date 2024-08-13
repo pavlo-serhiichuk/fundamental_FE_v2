@@ -1,18 +1,28 @@
-import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { userActions } from 'entities/User'
+import { type Auth, userActions } from 'entities/User'
 import { AUTH_USER_DATA } from 'shared/const/localStorage'
+import { type ThunkConfig } from 'app/providers/StoreProvider'
 
+interface FetchSignInProps {
+  username: string
+  password: string
+}
+
+console.log(__API__)
 // createAsyncThunk
 // - це actionCreator який повертає в результаті action
 // цей action потрапляє в dispatch і в результаті повертає якісь данні
-export const fetchSignIn = createAsyncThunk(
+export const fetchSignIn = createAsyncThunk<Auth, FetchSignInProps, ThunkConfig<string>>(
   'users/fetchByIdStatus',
-  async (payload: any, thunkAPI) => {
+  async (payload, thunkAPI) => {
+    const { extra } = thunkAPI
     try {
-      const response = await axios.post('http://localhost:8000/login', payload)
+      // ts-ignore
+      const response = await extra.api.post('/login', payload)
       localStorage.setItem(AUTH_USER_DATA, JSON.stringify(response.data))
       thunkAPI.dispatch(userActions.setUserAuthData(response.data))
+      // eslint-disable-next-line
+      extra.navigate('/about')
       return response.data
     } catch (e) {
       return thunkAPI.rejectWithValue('User is not found. Try latter')

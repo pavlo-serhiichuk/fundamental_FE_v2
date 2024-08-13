@@ -12,10 +12,12 @@ export interface ConfigOptions {
   paths: WebpackPaths
   isDev: boolean
   port: number
+  apiUrl: string
 }
 
 export interface EnvOptions {
   mode: WebpackMode
   port: number
   goal: string
+  apiUrl: string
 }

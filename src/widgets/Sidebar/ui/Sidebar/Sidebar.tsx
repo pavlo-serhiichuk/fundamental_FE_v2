@@ -25,7 +25,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
     <div data-testid="sidebar" className={cls(s.Sidebar, { [s.closed]: closed }, [className])}>
       <div className={s.links}>
         {sidebarItems.map(item => (
-          <SidebarItem item={item} />
+          <SidebarItem key={item.path} item={item} />
         ))}
       </div>
       <div className={s.switchers}>

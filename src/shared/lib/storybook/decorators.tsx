@@ -1,7 +1,7 @@
 import 'app/styles/index.scss'
 import { Suspense } from 'react'
 import { type Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, useNavigate } from 'react-router-dom'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
@@ -36,10 +36,13 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
 }
 
 export const StoreDecorator = (state: DeepPartial<StateSchema>) => (Story: any) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const navigate = useNavigate()
   return (
     <StoreProvider
       initialState={state}
       asyncReducers={{ ...defaultAsyncReducers }}
+      navigate={navigate}
     >
         <Story />
     </StoreProvider>
