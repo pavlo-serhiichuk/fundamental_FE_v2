@@ -6,7 +6,7 @@ import s from './Input.module.scss'
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
 interface InputProps extends HTMLInputProps {
-  type: string
+  type?: string
   className?: string
   label?: string
   value?: string

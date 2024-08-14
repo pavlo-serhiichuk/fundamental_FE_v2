@@ -8,7 +8,6 @@ interface FetchSignInProps {
   password: string
 }
 
-console.log(__API__)
 // createAsyncThunk
 // - це actionCreator який повертає в результаті action
 // цей action потрапляє в dispatch і в результаті повертає якісь данні

@@ -1,30 +1,30 @@
 import { type FC, useEffect } from 'react'
-import { cls } from 'shared/lib/classNames/classNames'
-import { useTranslation } from 'react-i18next'
 import { type ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad'
-import { profileReducer } from 'entities/Profile'
-
-interface ProfilePageProps {
-  className?: string
-}
+import { ProfileCard, profileReducer } from 'entities/Profile'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { fetchProfileData } from 'entities/Profile/model/thunk/fetchProfileData'
 
 const reducers: ReducersList = {
   profile: profileReducer
 }
 
-const ProfilePage: FC<ProfilePageProps> = (props) => {
-  const { t } = useTranslation()
-  const { className } = props
-  const { onActivateDynamicLoad } = useDynamicReducerLoad(reducers)
+const ProfilePage = () => {
+  const { onActivateDynamicLoad } = useDynamicReducerLoad(reducers, false)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchProfileData())
+  }, [dispatch])
 
   useEffect(() => {
     onActivateDynamicLoad()
-  }, [onActivateDynamicLoad])
+    // eslint-disable-next-line
+  }, [])
 
   return (
-    <div className={cls('', {}, [className])}>
-        {t('Profile page')}
-    </div>
+    <>
+      <ProfileCard />
+    </>
   )
 }
 

@@ -1,6 +1,10 @@
 type Mods = Record<string, string | boolean>
 
-export function cls (className: string, mods: Mods = {}, additional: string[] = []): string {
+export function cls (
+  className: string,
+  mods: Mods = {},
+  additional: Array<string | undefined> = []
+): string {
   const modsClasses = Object.entries(mods)
     .filter(([_, value]) => Boolean(value))
     .map(([className]) => className).flat(1)

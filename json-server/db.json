@@ -22,7 +22,6 @@
   "users": [
     {
       "id": "1",
-      "password": "111",
       "username": "admin",
       "age": 28
     }
@@ -30,8 +29,7 @@
   "profile": {
     "name": "Pasha",
     "lastname": "Serh",
-    "age": 32,
-    "city": "Irpin",
+    "age": 28,
     "country": "Ukraine",
     "currency": "UAH",
     "username": "pasha",
