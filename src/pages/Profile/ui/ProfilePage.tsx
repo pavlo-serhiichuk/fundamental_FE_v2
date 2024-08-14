@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react'
+import { useEffect } from 'react'
 import { type ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad'
 import { ProfileCard, profileReducer } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'

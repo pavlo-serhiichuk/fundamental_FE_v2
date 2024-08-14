@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import s from './SignInForm.module.scss'
 import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { getSignInData } from 'features/SignIn/state/selectors/getSignInData/getSignInData'
 import { signInActions, signInReducer } from 'features/SignIn'
 import { fetchSignIn } from 'features/SignIn/state/thunks/fetchSignIn'
@@ -23,7 +23,7 @@ const initialReducers: ReducersList = { signIn: signInReducer }
 const SignInForm: FC<SignInFormProps> = (props) => {
   const { t } = useTranslation()
   const { className, onSignInSuccess } = props
-  const { password, username, isLoading, error } = useSelector(getSignInData)
+  const data = useSelector(getSignInData)
   const dispatch = useAppDispatch()
   const { onActivateDynamicLoad } = useDynamicReducerLoad(initialReducers)
 
@@ -41,22 +41,25 @@ const SignInForm: FC<SignInFormProps> = (props) => {
   }
 
   const onSignIn = useCallback(async () => {
+    const requestData = {
+      password: data?.password || '', username: data?.username || ''
+    }
     // eslint-disable-next-line
-    const res: any = await dispatch(fetchSignIn({ password, username }))
+    const res: any = await dispatch(fetchSignIn(requestData))
     if (res.meta.requestStatus === 'fulfilled') {
       onSignInSuccess()
     }
-  }, [dispatch, onSignInSuccess, username, password])
+  }, [dispatch, onSignInSuccess, data])
 
   return (
     <div className={cls(s.SignInForm, {}, [className])}>
       <Text title={'Sign in'} />
-      {error ? <Text theme={'error'} text={error} /> : null}
+      {data?.error ? <Text theme={'error'} text={data?.error} /> : null}
       <div className={s.inputs}>
-        <Input type="text" label={'Username'} onChange={onChangeUsername} value={username} />
-        <Input type="text" label={'Password'} onChange={onChangePassword} value={password} />
+        <Input type="text" label={'Username'} onChange={onChangeUsername} value={data?.username} />
+        <Input type="text" label={'Password'} onChange={onChangePassword} value={data?.password} />
       </div>
-      <Button disabled={isLoading} onClick={onSignIn} className={s.signInBtn} theme={'bordered'}>{t('Sign in')}</Button>
+      <Button disabled={data?.isLoading} onClick={onSignIn} className={s.signInBtn} theme={'bordered'}>{t('Sign in')}</Button>
     </div>
   )
 }

@@ -6,8 +6,8 @@ import s from './Text.module.scss'
 type TextTheme = 'content' | 'error' | 'warn'
 interface TextProps {
   className?: string
-  title?: string
-  text?: string
+  title?: string | undefined
+  text?: string | undefined
   theme?: TextTheme
 }
 

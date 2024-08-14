@@ -18,7 +18,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
   const { className } = props
   const data = useSelector(getProfileData)
   const dispatch = useAppDispatch()
-
+  console.log(111, data)
   return (
     <div className={cls(s.ProfileCard, {}, [className])}>
       <div className={s.header}>
@@ -26,8 +26,16 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
         <Button theme={'bordered'}>{t('Edit')}</Button>
       </div>
       <div className={s.data}>
-        <Input value={data?.firstname || ''} placeholder={t('Your name...')}/>
-        <Input value={data?.lastname || ''} placeholder={t('Your lastname...')}/>
+        <Input
+          value={data?.firstname}
+          placeholder={t('Your name...')}
+          label={t('Name')}
+        />
+        <Input
+          value={data?.lastname}
+          placeholder={t('Your lastname...')}
+          label={t('Lastname')}
+        />
       </div>
     </div>
   )

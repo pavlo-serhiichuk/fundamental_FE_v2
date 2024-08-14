@@ -9,6 +9,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUserAuthData: (state: UserSchema, action: PayloadAction<any>) => {
+      console.log('action.payload', action.payload)
       state.auth = action.payload
     },
     initUserAuthData: (state: UserSchema) => {

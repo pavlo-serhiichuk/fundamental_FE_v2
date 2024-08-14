@@ -2,9 +2,7 @@ import { type FC, type ReactNode } from 'react'
 import { Provider } from 'react-redux'
 import { type StateSchema } from '../config/StateSchema'
 import { createReduxStore } from '../config/store'
-import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
-import { type To } from '@remix-run/router'
-import { type NavigateOptions } from 'react-router/dist/lib/context'
+import { type ReducersMapObject } from '@reduxjs/toolkit'
 import { useNavigate } from 'react-router-dom'
 
 interface StoreProviderProps {

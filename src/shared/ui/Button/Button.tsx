@@ -7,12 +7,12 @@ export type ButtonTheme = 'clear' | 'bordered' | 'nav-squad-m' | 'content-squad-
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   theme?: ButtonTheme
-  disabled?: boolean
+  disabled?: boolean | undefined
   children?: ReactNode
 }
 
 export const Button = memo((props: ButtonProps) => {
-  const { className, theme, children, disabled, ...otherProps } = props
+  const { className, theme = 'clear', children, disabled = false, ...otherProps } = props
 
   return (
     <button

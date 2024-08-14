@@ -4,7 +4,7 @@ import { type Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { BrowserRouter, useNavigate } from 'react-router-dom'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider'
-import { type DeepPartial, type ReducersMapObject } from '@reduxjs/toolkit'
+import { type ReducersMapObject } from '@reduxjs/toolkit'
 import i18nextForTests from 'shared/config/i18next/i18nextForTests'
 import { I18nextProvider } from 'react-i18next'
 import { signInReducer } from 'features/SignIn'
@@ -36,13 +36,10 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
 }
 
 export const StoreDecorator = (state: DeepPartial<StateSchema>) => (Story: any) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const navigate = useNavigate()
   return (
     <StoreProvider
       initialState={state}
       asyncReducers={{ ...defaultAsyncReducers }}
-      navigate={navigate}
     >
         <Story />
     </StoreProvider>

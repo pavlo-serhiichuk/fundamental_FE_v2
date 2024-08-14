@@ -19,9 +19,10 @@ export const fetchSignIn = createAsyncThunk<Auth, FetchSignInProps, ThunkConfig<
       // ts-ignore
       const response = await extra.api.post('/login', payload)
       localStorage.setItem(AUTH_USER_DATA, JSON.stringify(response.data))
+      console.log(111, response.data)
       thunkAPI.dispatch(userActions.setUserAuthData(response.data))
       // eslint-disable-next-line
-      extra.navigate('/about')
+      extra.navigate?.('/about')
       return response.data
     } catch (e) {
       return thunkAPI.rejectWithValue('User is not found. Try latter')

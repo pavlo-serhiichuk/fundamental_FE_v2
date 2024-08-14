@@ -1,4 +1,3 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
 import { signInActions, signInReducer, type SignInSchema } from 'features/SignIn'
 
 describe('signInSlice.test', () => {

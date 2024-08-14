@@ -1,6 +1,5 @@
 import { type StateSchema } from 'app/providers/StoreProvider'
 import { getSignInInitialState } from 'features/SignIn/state/slice/getSignInInitialState'
-import { type DeepPartial } from '@reduxjs/toolkit'
 import { getSignInData } from 'features/SignIn/state/selectors/getSignInData/getSignInData'
 
 describe('getSignInData', () => {

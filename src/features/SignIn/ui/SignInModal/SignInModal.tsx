@@ -9,7 +9,7 @@ interface SignInModalProps {
 }
 
 export const SignInModal: FC<SignInModalProps> = (props) => {
-  const { isOpen, onClose } = props
+  const { isOpen, onClose = () => {} } = props
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} className={''}>

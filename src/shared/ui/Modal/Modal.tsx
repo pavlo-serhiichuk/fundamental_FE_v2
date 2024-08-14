@@ -17,7 +17,7 @@ export const Modal: FC<ModalProps> = (props) => {
   const mods = { [s.opened]: isOpen }
 
   const closeHandler = useCallback(() => {
-    onClose()
+    onClose?.()
   }, [onClose])
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {

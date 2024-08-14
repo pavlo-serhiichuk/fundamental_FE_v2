@@ -23,8 +23,8 @@ export const useDynamicReducerLoad = (reducers: ReducersList, isUnmountReducer: 
 
   useEffect(() => {
     if (isActivate && !isStorybook) {
-      Object.entries(reducers).forEach(([name, reducer]: EntriesSchema) => {
-        store.reducerManager.add(name, reducer)
+      Object.entries(reducers).forEach(([name, reducer]) => {
+        store.reducerManager.add(name as StateSchemaKey, reducer)
         console.log('here 1')
         dispatch({ type: `@INIT ${name} reducer` })
       })
@@ -33,8 +33,8 @@ export const useDynamicReducerLoad = (reducers: ReducersList, isUnmountReducer: 
     return () => {
       if (isActivate && isUnmountReducer && !isStorybook) {
         setIsActivate(false)
-        Object.keys(reducers).forEach((name: StateSchemaKey) => {
-          store.reducerManager.remove(name)
+        Object.keys(reducers).forEach((name) => {
+          store.reducerManager.remove(name as StateSchemaKey)
           dispatch({ type: `@DESTROY ${name} reducer` })
         })
       }
