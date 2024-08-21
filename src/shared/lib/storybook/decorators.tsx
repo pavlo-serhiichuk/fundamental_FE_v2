@@ -1,7 +1,7 @@
 import 'app/styles/index.scss'
 import { Suspense } from 'react'
 import { type Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
-import { BrowserRouter, useNavigate } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { type ReducersMapObject } from '@reduxjs/toolkit'

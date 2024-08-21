@@ -12,7 +12,7 @@
   outline: none;
 }
 
-.bordered {
+.bordered, .cancel {
   background: none;
   border: 1px solid var(--content-text-color);
   padding: 4px 12px;
@@ -37,4 +37,9 @@
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.cancel {
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
 }

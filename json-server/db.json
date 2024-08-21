@@ -23,16 +23,17 @@
     {
       "id": "1",
       "username": "admin",
+      "password": "111",
       "age": 28
     }
   ],
   "profile": {
-    "name": "Pasha",
+    "name": "Po",
     "lastname": "Serh",
     "age": 28,
-    "country": "Ukraine",
-    "currency": "UAH",
+    "country": "Poland",
+    "currency": "USD",
     "username": "pasha",
-    "avatar": "https://icons.veryicon.com/png/o/miscellaneous/xdh-font-graphics-library/anonymous-user.png"
+    "avatar": "https://cdn.sortiraparis.com/images/80/98390/1014564-avatar-le-dernier-maitre-de-l-air-la-serie-netflix-en-live-action-devoile-sa-bande-annonce-finale.jpg"
   }
 }

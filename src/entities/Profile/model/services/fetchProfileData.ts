@@ -4,7 +4,7 @@ import { type Profile } from '../types/ProfileSchema'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
 export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
-  'profile/',
+  'profile/fetchProfileData',
   async (payload, thunkAPI) => {
     const { extra } = thunkAPI
     try {
