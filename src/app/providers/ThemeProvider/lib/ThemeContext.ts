@@ -1,6 +1,6 @@
 import { createContext, type Dispatch, type SetStateAction } from 'react'
 
-export type Theme = 'dark' | 'light'
+export type Theme = 'dark' | 'light' | 'green'
 export const LOCAL_STORAGE_THEME_KEY = 'theme'
 
 interface CreateContextProps {

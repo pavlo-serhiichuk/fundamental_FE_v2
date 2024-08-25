@@ -14,6 +14,10 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {}
 
+export const PrimaryGreen: Story = {
+  decorators: [ThemeDecorator('green')]
+}
+
 export const PrimaryDark: Story = {
   decorators: [ThemeDecorator('dark')]
 }
