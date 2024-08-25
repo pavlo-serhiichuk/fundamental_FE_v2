@@ -1,10 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type Profile, type ProfileSchema } from 'entities/Profile'
-import { fetchProfileData } from '../services/fetchProfileData'
-import { getProfileInitialState } from 'entities/Profile/model/slice/initialState'
-import { updateProfileData } from 'entities/Profile/model/services/updateProfileData'
+import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
+import { profileInitialState } from 'entities/Profile/model/slice/profileState'
+import { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData'
 
-const initialState: ProfileSchema = getProfileInitialState()
+const initialState: ProfileSchema = profileInitialState
 
 const profileSlice = createSlice({
   name: 'profile',
@@ -22,6 +22,7 @@ const profileSlice = createSlice({
     resetForm: (state: ProfileSchema) => {
       state.readonly = true
       state.form = state.data
+      state.validationErrors = []
     }
   },
   extraReducers: builder => {
@@ -37,15 +38,15 @@ const profileSlice = createSlice({
       })
       .addCase(fetchProfileData.rejected, (state: ProfileSchema, action: any) => {
         state.isLoading = false
-        state.error = action.payload
+        state.validationErrors = action.payload
       })
       .addCase(updateProfileData.pending, (state: ProfileSchema) => {
         state.isUpdating = true
         state.validationErrors = []
       })
-      .addCase(updateProfileData.fulfilled, (state: ProfileSchema) => {
+      .addCase(updateProfileData.fulfilled, (state: ProfileSchema, action: PayloadAction<Profile>) => {
         state.isUpdating = false
-        state.data = state.form
+        state.data = action.payload
         state.readonly = true
       })
       .addCase(updateProfileData.rejected, (state: ProfileSchema, action: any) => {

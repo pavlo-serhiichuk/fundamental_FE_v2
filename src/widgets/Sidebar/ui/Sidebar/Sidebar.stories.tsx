@@ -17,3 +17,7 @@ export const Primary: Story = {}
 export const PrimaryDark: Story = {
   decorators: [ThemeDecorator('dark')]
 }
+
+export const UserAuth: Story = {
+  decorators: [StoreDecorator({ user: { auth: { id: '111', age: 23, name: 'admin' } } })]
+}

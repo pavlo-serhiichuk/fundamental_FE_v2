@@ -1,13 +1,14 @@
 import { validateProfileForm } from './validateProfileForm'
-import { getProfileInitialState } from 'entities/Profile/model/slice/initialState'
+import { profileMockState } from 'entities/Profile/model/slice/profileState'
 import { type Profile } from 'entities/Profile'
+
 describe('validateProfileForm.test', () => {
   test('with valid data', () => {
-    const form: Profile = getProfileInitialState(true).form
+    const form: Profile = { ...profileMockState.form }
     expect(validateProfileForm(form)).toEqual([])
   })
   test('with empty fields', () => {
-    const form: Profile = getProfileInitialState().form
+    const form: Profile = { ...profileMockState.form, lastname: '' }
     expect(validateProfileForm(form)).not.toEqual([])
   })
 })

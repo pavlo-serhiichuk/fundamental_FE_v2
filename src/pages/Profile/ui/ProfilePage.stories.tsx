@@ -2,7 +2,7 @@ import ProfilePage from './ProfilePage'
 import { fn } from '@storybook/test'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { StoreDecorator, ThemeDecorator } from 'shared/lib/storybook/decorators'
-import { getProfileInitialState } from 'entities/Profile/model/slice/initialState'
+import { profileMockState } from 'entities/Profile/model/slice/profileState'
 
 const meta = {
   title: 'pages/ProfilePage',
@@ -11,7 +11,7 @@ const meta = {
     onClick: fn(),
     onDoubleClick: fn(() => { alert('double') })
   },
-  decorators: [StoreDecorator({ profile: {} })]
+  decorators: [StoreDecorator({ profile: { readonly: true } })]
 } as Meta <typeof ProfilePage>
 
 export default meta
@@ -24,4 +24,4 @@ export const EmptyDark: Story = {
   decorators: [ThemeDecorator('dark')]
 }
 
-export const WithData: Story = { args: {}, decorators: StoreDecorator({ profile: getProfileInitialState(true) }) }
+export const WithData: Story = { args: {}, decorators: StoreDecorator({ profile: profileMockState }) }

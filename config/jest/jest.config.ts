@@ -3,8 +3,9 @@ import path from 'path'
 export default {
   // The test environment that will be used for testing
   globals: {
+    __API__: 'true',
     __IS_DEV__: true,
-    __API__: 'true'
+    __PROJECT__: 'jest'
   },
   clearMocks: true,
   testEnvironment: 'jsdom',

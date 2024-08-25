@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { type ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad'
 import { profileReducer } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { fetchProfileData } from 'entities/Profile/model/services/fetchProfileData'
+import { fetchProfileData } from 'entities/Profile/model/services/fetchProfileData/fetchProfileData'
 import { EditProfileCard } from 'features/EditProfileCard'
 
 const reducers: ReducersList = {
@@ -19,7 +19,8 @@ const ProfilePage = () => {
   }, [])
 
   useEffect(() => {
-    if (!window.location.href.includes('6006')) {
+    if (__PROJECT__ !== 'storybook') {
+      console.log('here')
       dispatch(fetchProfileData())
     }
   }, [dispatch])

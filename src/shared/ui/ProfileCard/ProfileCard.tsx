@@ -1,18 +1,19 @@
-import { cls } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import s from './ProfileCard.module.scss'
 import { useSelector } from 'react-redux'
 import { Input } from 'shared/ui/Input/Input'
-import { getProfileError, getProfileForm, getProfileLoading } from 'entities/Profile'
+import { getProfileError, getProfileLoading, type Profile } from 'entities/Profile'
 import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect'
 import { CurrencySelect } from 'entities/Currency'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Text } from 'shared/ui/Text/Text'
 import { Loader } from 'shared/ui/Loader/Loader'
+import { cls } from 'shared/lib/classNames/classNames'
 
 interface ProfileCardProps {
   readonly?: boolean
   className?: string
+  form: Profile | undefined
   onChangeFirstName?: (value: string) => void
   onChangeLastname?: (value: string) => void
   onChangeAge?: (value: string) => void
@@ -24,12 +25,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
   const {
     readonly,
     className,
+    form,
     onChangeFirstName,
     onChangeLastname,
     onChangeAge,
     onChangeAvatar
   } = props
-  const form = useSelector(getProfileForm)
   const isLoading = useSelector(getProfileLoading)
   const error = useSelector(getProfileError)
 
@@ -48,9 +49,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
       </div>
     )
   }
-  console.log('readonly', readonly)
+
   return (
-    <div className={cls(s.ProfileCard, {}, [className])}>
+    <div className={cls(s.ProfileCard, { [s.editing]: !readonly }, [className])}>
       <div className={s.data}>
         <div className={s.avatarWrapper}>
           <Avatar src={form?.avatar || ''} alt={'profile'} size={100} />

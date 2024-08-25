@@ -32,10 +32,7 @@ const config: { webpackFinal: (config: Configuration) => Promise<Configuration>,
       html: '',
       entry: '',
       src: path.resolve(__dirname, '..', '..', 'src')
-      // locales: path.resolve(__dirname, 'public', 'locales'),
-      // buildLocales: path.resolve(__dirname, 'build', 'locales')
     }
-    // config.resolve.modules.push(paths.src)
     config.resolve?.modules?.push(path.relative(__dirname, paths.src), 'node_modules')
     config.resolve?.extensions?.push('.ts', '.tsx')
     config.module?.rules?.push(getCssLoader(true))
@@ -57,7 +54,8 @@ const config: { webpackFinal: (config: Configuration) => Promise<Configuration>,
 
     config.plugins?.push(new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
-      __API__: JSON.stringify('https://test-api.ua')
+      __API__: JSON.stringify('https://test-api.ua'),
+      __PROJECT__: JSON.stringify('storybook')
     }))
 
     config.plugins?.push(

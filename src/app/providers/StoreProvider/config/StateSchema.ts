@@ -16,6 +16,7 @@ import { type NavigateOptions } from 'react-router/dist/lib/context'
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+
   // async
   signIn?: SignInSchema
   profile?: ProfileSchema

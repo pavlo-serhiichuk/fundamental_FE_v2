@@ -4,6 +4,10 @@
   min-height: 300px;
 }
 
+.editing {
+  border: 2px solid var(--edit-border);
+}
+
 .header {
   display: inline-flex;
   justify-content: space-between;

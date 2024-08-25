@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { getProfileUpdating, getProfileValidationErrors, profileActions } from 'entities/Profile'
-import { updateProfileData } from 'entities/Profile/model/services/updateProfileData'
+import { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData'
 import { Text } from 'shared/ui/Text/Text'
 
 interface EditProfileHeaderProps {
