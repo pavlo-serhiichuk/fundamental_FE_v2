@@ -19,7 +19,6 @@ describe('fetchProfileData', () => {
     const result = await thunk.callThunk()
     expect(thunk.dispatch).toHaveBeenCalledTimes(2)
     expect(result.meta.requestStatus).toBe('rejected')
-    console.log(11, result)
     expect(result.payload).toEqual([
       ValidationError.SERVER_ERROR
     ])

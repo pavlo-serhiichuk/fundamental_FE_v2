@@ -1,4 +1,7 @@
 {
+  "counter": {
+    "number": 23
+  },
   "posts": [
     {
       "userId": "1",

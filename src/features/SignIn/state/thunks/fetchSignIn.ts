@@ -19,7 +19,6 @@ export const fetchSignIn = createAsyncThunk<Auth, FetchSignInProps, ThunkConfig<
       // ts-ignore
       const response = await extra.api.post('/login', payload)
       localStorage.setItem(AUTH_USER_DATA, JSON.stringify(response.data))
-      console.log(111, response.data)
       thunkAPI.dispatch(userActions.setUserAuthData(response.data))
       // eslint-disable-next-line
       extra.navigate?.('/about')

@@ -20,7 +20,6 @@ const ProfilePage = () => {
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      console.log('here')
       dispatch(fetchProfileData())
     }
   }, [dispatch])

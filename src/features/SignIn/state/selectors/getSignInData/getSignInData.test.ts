@@ -7,7 +7,6 @@ describe('getSignInData', () => {
     const initialState = getSignInInitialState(true)
 
     const state: DeepPartial<StateSchema> = { signIn: initialState }
-    console.log(1, initialState)
     expect(getSignInData(state as StateSchema)).toBe(initialState)
   })
 })
