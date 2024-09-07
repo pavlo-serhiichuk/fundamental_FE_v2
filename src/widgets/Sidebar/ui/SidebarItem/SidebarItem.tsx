@@ -16,7 +16,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
   const { t } = useTranslation()
   const { className, item } = props
   const isAuth = useSelector(getUserAuthData)
-  console.log('update', isAuth)
+
   if (item.authOnly && !isAuth) {
     return null
   }
