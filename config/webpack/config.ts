@@ -12,7 +12,8 @@ export function getConfig (options: ConfigOptions): webpack.Configuration {
     output: {
       filename: '[name].[contenthash:10].js',
       path: paths.build,
-      clean: true
+      clean: true,
+      publicPath: '/'
     },
     module: { rules: getLoaders(options) },
     resolve: {

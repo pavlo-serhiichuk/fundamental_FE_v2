@@ -6,8 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button/Button'
 import { SignInModal } from 'features/SignIn'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData/getUserAuthData'
-import { userActions } from 'entities/User'
+import { getUserAuthData, userActions } from 'entities/User'
 import { AUTH_USER_DATA } from 'shared/const/localStorage'
 
 interface NavbarProps {
@@ -30,7 +29,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
   }
 
   const onSignOut = () => {
-    dispatch(userActions.setUserAuthData({}))
+    dispatch(userActions.setUserAuthData(null))
     localStorage.removeItem(AUTH_USER_DATA)
   }
 

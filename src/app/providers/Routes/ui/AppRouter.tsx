@@ -1,28 +1,29 @@
-import { Suspense, useMemo } from 'react'
+import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { routeConfig } from 'shared/config/routeConfig/routeConfig'
+import { type AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig'
 import { PageLoader } from 'widgets/PageLoader/PageLoader'
-import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData/getUserAuthData'
+import { ProtectedRoute } from 'app/providers/Routes/ui/ProtectedRoute'
 
 export const AppRouter = () => {
-  const isAuth = useSelector(getUserAuthData)
-  const routes = useMemo(() => {
-    return Object.values(routeConfig).filter((route) => {
-      return !(!isAuth && route.authOnly)
-    })
-  }, [isAuth])
+  const renderWithProtection = (route: AppRoutesProps) => {
+    const element = <Suspense fallback={<PageLoader />}>
+      {route.element}
+    </Suspense>
+    return (
+      <Route
+        key={route.path}
+        path={route.path}
+        element={
+          route.authOnly ? <ProtectedRoute>{element}</ProtectedRoute> : element
+        }
+      />
+    )
+  }
 
   return (
     <div className="page-content">
       <Routes>
-        {routes.map(route => (
-          <Route key={route.path} path={route.path} element={
-            <Suspense fallback={<PageLoader />}>
-              {route.element}
-            </Suspense>
-          } />
-        ))}
+        {Object.values(routeConfig).map(renderWithProtection)}
       </Routes>
     </div>
   )

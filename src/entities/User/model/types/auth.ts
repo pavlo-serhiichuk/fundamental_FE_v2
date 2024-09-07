@@ -6,4 +6,5 @@ export interface Auth {
 
 export interface UserSchema {
   auth?: Auth
+  _isInit: boolean
 }
