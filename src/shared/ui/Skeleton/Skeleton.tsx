@@ -6,15 +6,15 @@ interface SkeletonProps {
   className?: string
   height?: string | number
   width?: string | number
-  borderRadius?: string
+  radius?: string
   marginTop?: string | number
 }
 
 export const Skeleton: FC<SkeletonProps> = memo((props) => {
-  const { className, height, width, borderRadius, marginTop } = props
+  const { className, height, width, radius, marginTop } = props
 
   const styles: CSSProperties = {
-    height, width, borderRadius, marginTop
+    height, width, borderRadius: radius, marginTop
   }
 
   return (

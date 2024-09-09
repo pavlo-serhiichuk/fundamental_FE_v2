@@ -19,5 +19,7 @@
 .page-content {
   flex-grow: 1;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 20px 40px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: scroll;
 }

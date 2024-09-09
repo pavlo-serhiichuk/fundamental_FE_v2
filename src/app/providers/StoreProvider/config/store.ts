@@ -6,6 +6,7 @@ import { createReducerManager } from 'app/providers/StoreProvider/config/reducer
 import { $api } from 'shared/api/api'
 import { type To } from '@remix-run/router'
 import { type NavigateOptions } from 'react-router/dist/lib/context'
+import { articleSliceReducer } from 'entities/Article'
 
 export function createReduxStore (
   initialState?: StateSchema,
@@ -15,7 +16,8 @@ export function createReduxStore (
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
-    user: userReducer
+    user: userReducer,
+    articleDetails: articleSliceReducer
   }
 
   const reducerManager = createReducerManager(rootReducers)

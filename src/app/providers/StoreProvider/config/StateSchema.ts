@@ -12,6 +12,7 @@ import { type ProfileSchema } from 'entities/Profile/model/types/ProfileSchema'
 import { type AxiosInstance } from 'axios'
 import { type To } from '@remix-run/router'
 import { type NavigateOptions } from 'react-router/dist/lib/context'
+import { type ArticleSchema } from 'entities/Article'
 
 export interface StateSchema {
   counter: CounterSchema
@@ -20,6 +21,7 @@ export interface StateSchema {
   // async
   signIn?: SignInSchema
   profile?: ProfileSchema
+  articleDetails: ArticleSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

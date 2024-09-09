@@ -53,3 +53,11 @@ export const TranslationDecorator = (Story: any) => {
     </I18nextProvider>
   )
 }
+
+export const PageContentDecorator = (Story: any) => {
+  return (
+    <div className={'page-content'}>
+        <Story />
+    </div>
+  )
+}
