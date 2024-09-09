@@ -1,7 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type ArticleSchema } from 'entities/Article/model/types/ArticleSchema'
+import { type ArticleDetailsSchema } from 'entities/Article/model/types/ArticleDetailsSchema'
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById'
 import { articleInitialState } from './articleState'
+import { type Article } from 'entities/Article'
 
 export const articleSlice = createSlice({
   name: 'articleSlice',
@@ -11,15 +12,15 @@ export const articleSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticleById.pending, (state: ArticleSchema) => {
+      .addCase(fetchArticleById.pending, (state: ArticleDetailsSchema) => {
         state.error = undefined
         state.isLoading = true
       })
-      .addCase(fetchArticleById.fulfilled, (state: ArticleSchema, action) => {
+      .addCase(fetchArticleById.fulfilled, (state: ArticleDetailsSchema, action: PayloadAction<Article>) => {
         state.isLoading = false
         state.data = action.payload
       })
-      .addCase(fetchArticleById.rejected, (state: ArticleSchema, action: PayloadAction<string | undefined>) => {
+      .addCase(fetchArticleById.rejected, (state: ArticleDetailsSchema, action: PayloadAction<string | undefined>) => {
         state.isLoading = false
         state.error = action.payload
       })

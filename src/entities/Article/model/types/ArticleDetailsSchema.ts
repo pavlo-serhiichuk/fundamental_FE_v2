@@ -1,7 +1,7 @@
 import { type Article } from './article'
 
-export interface ArticleSchema {
-  data?: Article[]
+export interface ArticleDetailsSchema {
+  data?: Article
   isLoading?: boolean
   error?: string
 }

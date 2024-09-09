@@ -1,9 +1,9 @@
-import { type ArticleSchema } from 'entities/Article'
+import { type ArticleDetailsSchema } from 'entities/Article'
 import { ArticleBlockType } from 'entities/Article/model/consts/consts'
 
-export const articleInitialState: ArticleSchema = {}
+export const articleInitialState: ArticleDetailsSchema = {}
 
-export const articleMockState = (isLoading = false, error = undefined) => ({
+export const articleMockState = (isLoading = false, error = '') => ({
   isLoading,
   error,
   data: [{

@@ -6,9 +6,10 @@ import { fetchArticleById } from 'entities/Article/model/services/fetchArticleBy
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { getArticleDetailsError, getArticleDetailsLoading } from 'entities/Article'
+import { type Article, getArticleDetailsData, getArticleDetailsError, getArticleDetailsLoading } from 'entities/Article'
 import { ArticleDetailsSkeleton } from 'entities/Article/ui/ArticleDetails/ArticleDetailsSkeleton'
 import { Text } from 'shared/ui/Text/Text'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 
 interface ArticleDetailsProps {
   className?: string
@@ -17,16 +18,21 @@ interface ArticleDetailsProps {
 export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
-  // const data = useSelector(getArticleDetailsData)
+  const articleDetails = useSelector(getArticleDetailsData)
   const isLoading = useSelector(getArticleDetailsLoading)
   const error = useSelector(getArticleDetailsError)
   const { className } = props
   const { id } = useParams<{ id: string | undefined }>()
+
   useEffect(() => {
     if (id) {
       dispatch(fetchArticleById(id))
     }
   }, [dispatch, id])
+
+  const renderBlocks = () => {
+    return null
+  }
 
   const Content = () => {
     switch (true) {
@@ -34,8 +40,13 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
         return <ArticleDetailsSkeleton />
       case !!error:
         return <Text title={t('There is no such an article')} text={'You can try another article'} />
+      // case !!articleDetails:
+      //   return <div>
+      //     <Avatar src={articleDetails?.image || ''} alt={} size={200} />
+      //     {renderBlocks()}
+      //   </div>
       default:
-        return <div>{t('content')}</div>
+        return null
     }
   }
 
