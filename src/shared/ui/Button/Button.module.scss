@@ -12,7 +12,8 @@
   outline: none;
 }
 
-.bordered, .cancel {
+.bordered,
+.cancel {
   background: none;
   border: 1px solid var(--content-text-color);
   padding: 4px 12px;
