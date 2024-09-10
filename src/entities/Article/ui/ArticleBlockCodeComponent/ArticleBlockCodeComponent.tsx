@@ -1,19 +1,20 @@
 import { type FC } from 'react'
 import { cls } from 'shared/lib/classNames/classNames'
-import { useTranslation } from 'react-i18next'
 import s from './ArticleBlockCodeComponent.module.scss'
+import { type ArticleCodeBlock } from 'entities/Article'
+import { Code } from 'shared/ui/Code/Code'
 
 interface ArticleBlockCodeComponentProps {
   className?: string
+  block: ArticleCodeBlock
 }
 
 export const ArticleBlockCodeComponent: FC<ArticleBlockCodeComponentProps> = (props) => {
-  const { t } = useTranslation()
-  const { className } = props
+  const { className, block } = props
 
   return (
     <div className={cls(s.ArticleBlockCodeComponent, {}, [className])}>
-      {t('')}
+      <Code text={block.code} />
     </div>
   )
 }

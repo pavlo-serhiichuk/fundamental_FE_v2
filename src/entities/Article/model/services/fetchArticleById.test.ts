@@ -1,11 +1,11 @@
 import { fetchArticleById } from './fetchArticleById'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThynk/TestAsyncThunk'
-import { articleMockState } from 'entities/Article/model/slice/articleState'
+import { getArticleMockState } from 'entities/Article/model/slice/articleState'
 import { type ArticleDetailsSchema } from 'entities/Article'
 
 describe('fetchArticleById.test', () => {
   test('success', async () => {
-    const mockData = articleMockState() as ArticleDetailsSchema
+    const mockData = getArticleMockState() as ArticleDetailsSchema
     const thunk = new TestAsyncThunk(fetchArticleById, { articleDetails: {} })
     thunk.api.get.mockReturnValue(Promise.resolve({ data: mockData }))
     const result: any = await thunk.callThunk("1")
