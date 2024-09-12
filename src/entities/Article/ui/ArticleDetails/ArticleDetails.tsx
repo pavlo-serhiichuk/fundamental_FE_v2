@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react'
+import { type FC, useEffect, useLayoutEffect } from 'react'
 import { cls } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import s from './ArticleDetails.module.scss'
@@ -7,8 +7,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {
-  type Article,
   type ArticleBlock,
+  articleDetailsReducer,
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsLoading
@@ -20,9 +20,15 @@ import { ArticleBlockType } from 'entities/Article/model/consts/consts'
 import { ArticleBlockTextComponent } from 'entities/Article/ui/ArticleBlockTextComponent/ArticleBlockTextComponent'
 import { ArticleBlockImageComponent } from 'entities/Article/ui/ArticleBlockImageComponent/ArticleBlockImageComponent'
 import { ArticleBlockCodeComponent } from 'entities/Article/ui/ArticleBlockCodeComponent/ArticleBlockCodeComponent'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader'
 
 interface ArticleDetailsProps {
   className?: string
+}
+
+const reducers: ReducersList = {
+  articleDetails: articleDetailsReducer
 }
 
 export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
@@ -34,11 +40,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   const { className } = props
   const { id } = useParams<{ id: string | undefined }>()
 
-  useEffect(() => {
+  useInitialEffect(() => {
     if (id) {
       dispatch(fetchArticleById(id))
     }
-  }, [dispatch, id])
+  })
 
   const renderBlocks = (block: ArticleBlock) => {
     switch (block.type) {
@@ -55,10 +61,10 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
 
   const Content = () => {
     switch (true) {
-      case isLoading:
-        return <ArticleDetailsSkeleton />
       case !!error:
         return <Text title={t('There is no such an article')} text={'You can try another article'} />
+      case isLoading || !articleDetails:
+        return <ArticleDetailsSkeleton />
       case !!articleDetails:
         return <div>
           <Avatar
@@ -67,8 +73,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
             alt={articleDetails?.title || ''}
             className={s.avatar}
           />
-          <Text size={'text_size_l'} title={articleDetails.title} text={articleDetails.subtitle}/>
-          {articleDetails.blocks?.map(renderBlocks)}
+          <Text size={'text_size_l'} title={articleDetails?.title} text={articleDetails?.subtitle} />
+          {articleDetails?.blocks?.map(renderBlocks)}
         </div>
       default:
         return null
@@ -76,8 +82,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   }
 
   return (
-    <div className={cls(s.ArticleDetails, {}, [className])}>
-      <Content />
-    </div>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <div className={cls(s.ArticleDetails, {}, [className])}>
+        <Content />
+      </div>
+    </DynamicModuleLoader>
+
   )
 }

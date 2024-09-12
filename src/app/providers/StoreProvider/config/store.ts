@@ -6,7 +6,6 @@ import { createReducerManager } from 'app/providers/StoreProvider/config/reducer
 import { $api } from 'shared/api/api'
 import { type To } from '@remix-run/router'
 import { type NavigateOptions } from 'react-router/dist/lib/context'
-import { articleSliceReducer } from 'entities/Article'
 
 export function createReduxStore (
   initialState?: StateSchema,
@@ -16,19 +15,20 @@ export function createReduxStore (
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
-    user: userReducer,
-    articleDetails: articleSliceReducer
+    user: userReducer
   }
 
   const reducerManager = createReducerManager(rootReducers)
+
   const extraArg: ThunkExtraArg = {
     api: $api,
     navigate
   }
+
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
-    preloadedState: initialState,
     devTools: __IS_DEV__,
+    preloadedState: initialState as any,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       thunk: {
         extraArgument: extraArg

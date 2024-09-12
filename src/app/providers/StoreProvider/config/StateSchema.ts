@@ -1,5 +1,5 @@
 import { type CounterSchema } from 'entities/Counter'
-import { type UserSchema } from 'entities/User/model/types/auth'
+import { type UserSchema } from 'entities/User/model/types/user'
 import { type SignInSchema } from 'features/SignIn'
 import {
   type AnyAction,
@@ -13,6 +13,7 @@ import { type AxiosInstance } from 'axios'
 import { type To } from '@remix-run/router'
 import { type NavigateOptions } from 'react-router/dist/lib/context'
 import { type ArticleDetailsSchema } from 'entities/Article'
+import { type ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComments'
 
 export interface StateSchema {
   counter: CounterSchema
@@ -21,7 +22,8 @@ export interface StateSchema {
   // async
   signIn?: SignInSchema
   profile?: ProfileSchema
-  articleDetails: ArticleDetailsSchema
+  articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

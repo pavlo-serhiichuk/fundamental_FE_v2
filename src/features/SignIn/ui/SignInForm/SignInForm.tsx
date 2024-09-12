@@ -9,8 +9,8 @@ import { getSignInData } from 'features/SignIn/state/selectors/getSignInData/get
 import { signInActions, signInReducer } from 'features/SignIn'
 import { fetchSignIn } from 'features/SignIn/state/thunks/fetchSignIn'
 import { Text } from 'shared/ui/Text/Text'
-import { type ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader'
 
 export interface SignInFormProps {
   className?: string
@@ -25,12 +25,6 @@ const SignInForm: FC<SignInFormProps> = (props) => {
   const { className, onSignInSuccess } = props
   const data = useSelector(getSignInData)
   const dispatch = useAppDispatch()
-  const { onActivateDynamicLoad } = useDynamicReducerLoad(initialReducers)
-
-  useEffect(() => {
-    onActivateDynamicLoad()
-    // eslint-disable-next-line
-  }, [])
 
   const onChangeUsername = (value: string) => {
     dispatch(signInActions.setUsername(value))
@@ -52,15 +46,17 @@ const SignInForm: FC<SignInFormProps> = (props) => {
   }, [dispatch, onSignInSuccess, data])
 
   return (
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
     <div className={cls(s.SignInForm, {}, [className])}>
       <Text title={'Sign in'} />
       {data?.error ? <Text theme={'error'} text={data?.error} /> : null}
       <div className={s.inputs}>
-        <Input type="text" label={'Username'} onChange={onChangeUsername} value={data?.username} />
-        <Input type="text" label={'Password'} onChange={onChangePassword} value={data?.password} />
+        <Input type="text" label={'Username'} onChange={onChangeUsername} value={data?.username || ''} />
+        <Input type="text" label={'Password'} onChange={onChangePassword} value={data?.password || ''} />
       </div>
       <Button disabled={data?.isLoading} onClick={onSignIn} className={s.signInBtn} theme={'bordered'}>{t('Sign in')}</Button>
     </div>
+    </DynamicModuleLoader>
   )
 }
 

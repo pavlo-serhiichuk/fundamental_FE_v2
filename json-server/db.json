@@ -510,18 +510,36 @@
       "blocks": []
     }
   ],
-  "users": [
+  "comments": [
     {
       "id": "1",
-      "username": "admin",
-      "password": "111",
-      "age": 28
+      "text": "some comment",
+      "articleId": "1",
+      "userId": "1"
     },
     {
       "id": "2",
-      "username": "user",
+      "text": "some comment. comment continuation ",
+      "articleId": "1",
+      "userId": "2"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "admin",
+      "password": "111",
+      "age": 28,
+      "role": "ADMIN",
+      "avatar": "https://cdn.sortiraparis.com/images/80/98390/1014564-avatar-le-dernier-maitre-de-l-air-la-serie-netflix-en-live-action-devoile-sa-bande-annonce-finale.jpg"
+    },
+    {
+      "id": "2",
+      "name": "user",
       "password": "222",
-      "age": 27
+      "age": 27,
+      "role": "USER",
+      "avatar": "https://cdn.sortiraparis.com/images/80/98390/1014564-avatar-le-dernier-maitre-de-l-air-la-serie-netflix-en-live-action-devoile-sa-bande-annonce-finale.jpg"
     }
   ],
   "profile": {

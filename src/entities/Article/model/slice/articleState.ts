@@ -1,5 +1,4 @@
 import { type ArticleDetailsSchema } from 'entities/Article'
-import { ArticleBlockType } from 'entities/Article/model/consts/consts'
 
 export const articleInitialState: ArticleDetailsSchema = {}
 

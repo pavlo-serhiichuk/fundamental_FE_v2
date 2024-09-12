@@ -4,7 +4,7 @@ import { fetchArticleById } from 'entities/Article/model/services/fetchArticleBy
 import { articleInitialState } from './articleState'
 import { type Article } from 'entities/Article'
 
-export const articleSlice = createSlice({
+export const articleDetailsSlice = createSlice({
   name: 'articleSlice',
   initialState: articleInitialState,
   reducers: {
@@ -27,5 +27,5 @@ export const articleSlice = createSlice({
   }
 })
 
-export const { actions: articleSliceActions } = articleSlice
-export const { reducer: articleSliceReducer } = articleSlice
+export const { actions: articleSliceActions } = articleDetailsSlice
+export const { reducer: articleDetailsReducer } = articleDetailsSlice
