@@ -18,7 +18,7 @@ export const Text = memo((props: TextProps) => {
   const { t } = useTranslation()
 
   return (
-    <div className={cls(s.Text, { [s[theme]]: true }, [className, s[size]])}>
+    <div className={cls('', { [s[theme]]: true }, [className, s[size]])}>
       {title ? <p>{t(title)}</p> : null}
       {text ? <span>{t(text)}</span> : null}
     </div>
